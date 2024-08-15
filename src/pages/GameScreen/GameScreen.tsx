@@ -66,10 +66,10 @@ const GameScreen: React.FC<GameScreenInterface> = () => {
       </div>
 
       <div
-        className="pt-10 text-center"
+        className="pt-10 text-center pb-10"
         onClick={reset}
       >
-        <button className="btn btn-accent btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+        <button className="btn btn-accent btn-lg">
           Reset
         </button>
       </div>
