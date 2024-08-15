@@ -1,29 +1,32 @@
-import paperRight from "@/assets/papel derecha.png";
 import rockRight from "@/assets/piedra derecha.png";
-import scissorsRight from "@/assets/tijera derecha.png";
 import { Action } from "@/domain/entities/action";
 
 export interface PlayerCardRightInterface {
-  opponentName:string
-  avatar:string
-  actions: Action[]
+  opponentName: string;
+  avatar: string;
+  actions: Action[];
 }
 
-const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({opponentName,avatar,actions}) => {
+const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({
+  opponentName,
+  avatar,
+  actions,
+}) => {
   return (
     <section>
-      <div className="card bg-base-100 w-96 shadow-xl">
+      {/* <div className="card bg-base-100 w-96 shadow-xl"> */}
+      <div className="card bg-primary-content w-96 shadow-xl">
         <figure>
-          <label className="swap text-9xl">
-            <div className="swap-on" id="paperrightimage">
-              <img src={paperRight} alt="paperright" />
-            </div>
-            <div className="swap-on" id="scissorrightimage">
-              <img src={scissorsRight} alt="scissorright" />
-            </div>
-            <div className="swap-on" id="rockrightimage">
-              <img src={rockRight} alt="rockright" />
-            </div>
+          <label className="swap text-9xl" id="swapright">
+            {actions.map((element) => (
+              <div
+                className="swap-on hidden"
+                id={element.name + "rightimage"}
+                key={element.name + "leftimage"}
+              >
+                <img src={element.image} alt={element.name + "rightimage"} />
+              </div>
+            ))}
             <div className="swap-off">
               <img src={rockRight} alt="rockright" />
             </div>
@@ -37,7 +40,7 @@ const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({opponentName,avata
           </div>
           <h2 className="card-title">{opponentName}</h2>
           <div className="card-actions">
-          {actions.map((element) => (
+            {actions.map((element) => (
               <button
                 className="btn btn-secondary btn-outline no-animation"
                 id={element.name + "right"}

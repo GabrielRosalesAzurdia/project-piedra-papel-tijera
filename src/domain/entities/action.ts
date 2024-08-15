@@ -5,11 +5,13 @@ export class Action{
     code: ActionCodes
     weakness: ActionCodes
     effective: ActionCodes
+    image: string
 
-    constructor(name:string, code:ActionCodes, weakness:ActionCodes, effective:ActionCodes){
+    constructor(name:string, code:ActionCodes, weakness:ActionCodes, effective:ActionCodes, image:string){
         this.name = name
         this.code = code
         this.weakness = weakness
         this.effective = effective
+        this.image = image
     }
 }

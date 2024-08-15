@@ -8,7 +8,7 @@ export interface GameScreenInterface {}
 const GameScreen: React.FC<GameScreenInterface> = () => {
   const { gameState, setGame } = useContext(GameContext);
 
-  const [modalText, setmodalText] = useState("Nadie ;)");
+  const [modalText, setmodalText] = useState("Nadie : P");
   const [modalAvatar, setmodalAvatar] = useState("");
 
   useEffect(() => {
@@ -44,17 +44,32 @@ const GameScreen: React.FC<GameScreenInterface> = () => {
   }, [gameState]);
 
   return (
-    <section className="pt-4">
+    <section className="pt-10">
       <div className="flex flex-row flex-wrap justify-around">
         <PlayerCardLeftContainer />
         <PlayerCardRightContainer />
+      </div>
+
+      <div className="pt-10 text-center" onClick={()=>{location.reload()}}>
+        <button className="btn btn-accent btn-xs sm:btn-sm md:btn-md lg:btn-lg">
+          Reset
+        </button>
       </div>
 
       <dialog id="winnermodal" className="modal">
         <div className="modal-box object-center">
           <h3 className="font-bold text-lg text-center">El ganador es</h3>
           <div className="flex items-center justify-center pt-4">
-          <img src={modalAvatar} alt="winnerpic" width="150px" height="150px" />
+            {modalAvatar == "" ? (
+              <span></span>
+            ) : (
+              <img
+                src={modalAvatar}
+                alt="winnerpic"
+                width="150px"
+                height="150px"
+              />
+            )}
           </div>
           <h4 className="font-bold text-base text-center pt-2">{modalText}</h4>
         </div>

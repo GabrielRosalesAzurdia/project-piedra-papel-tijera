@@ -13,6 +13,8 @@ const PlayerCardRightContainer: React.FC<
     if(gameState.player1.selectedAction != undefined && gameState.player2.selectedAction == undefined){
       gameState.player2.selectedAction = gameState.player2.actions[Math.floor(Math.random()*gameState.player2.actions.length)]
       document.getElementById(gameState.player2.selectedAction.name+"right")?.classList.add("btn-active")
+      document.getElementById(gameState.player2.selectedAction.name+"rightimage")?.classList.remove("hidden")
+      document.getElementById("swapright")?.classList.add("swap-active")
       setGame({ ...gameState });    
     }
   }, [gameState])
@@ -21,7 +23,7 @@ const PlayerCardRightContainer: React.FC<
     <PlayerCardRight
       opponentName={gameState.player2.name}
       avatar={gameState.player2.avatar}
-      actions={gameState.player1.actions}
+      actions={gameState.player2.actions}
     ></PlayerCardRight>
   );
 };

@@ -16,6 +16,8 @@ const PlayerCardLeftContainer: React.FC<
     }
     gameState.player1.selectedAction = action;
     document.getElementById(gameState.player1.selectedAction.name+"left")?.classList.add("btn-active")
+    document.getElementById(gameState.player1.selectedAction.name+"leftimage")?.classList.remove("hidden")
+    document.getElementById("swapleft")?.classList.add("swap-active")
     setGame({ ...gameState });
   };
 

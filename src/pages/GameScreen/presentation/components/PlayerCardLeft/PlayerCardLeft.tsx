@@ -1,6 +1,4 @@
-import paperleft from "@/assets/papel izquierda.png";
 import rockleft from "@/assets/piedra izquierda.png";
-import scissorsleft from "@/assets/tijera izquierda.png";
 import { Action } from "@/domain/entities/action";
 
 export interface PlayerCardLeftInterface {
@@ -18,19 +16,20 @@ const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({
 }) => {
   return (
     <section>
-      <div className="card bg-base-100 w-96 shadow-xl">
+      {/* <div className="card bg-base-100  w-96 shadow-xl"> */}
+      <div className="card bg-primary-content w-96 shadow-xl">
         <figure>
-          <label className="swap text-9xl">
-            <div className="swap-on" id="paperleftimage">
-              <img src={paperleft} alt="paperleft" />
-            </div>
-            <div className="swap-on" id="scissorleftimage">
-              <img src={scissorsleft} alt="scissorleft" />
-            </div>
-            <div className="swap-on" id="rockleftimage">
-              <img src={rockleft} alt="rockleft" />
-            </div>
-            <div className="swap-off">
+          <label className="swap text-9xl" id="swapleft">
+            {actions.map((element) => (
+              <div
+                className="swap-on hidden"
+                id={element.name + "leftimage"}
+                key={element.name + "leftimage"}
+              >
+                <img src={element.image} alt={element.name + "leftimage"} />
+              </div>
+            ))}
+            <div className="swap-off" id="default">
               <img src={rockleft} alt="rockleft" />
             </div>
           </label>
