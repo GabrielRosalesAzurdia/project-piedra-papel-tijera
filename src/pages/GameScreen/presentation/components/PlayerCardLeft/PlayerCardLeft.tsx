@@ -3,11 +3,11 @@ import rockleft from "@/assets/piedra izquierda.png";
 import scissorsleft from "@/assets/tijera izquierda.png";
 
 export interface PlayerCardLeftInterface {
-  opponentName:string
+  name:string
   avatar:string
 }
 
-const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({opponentName,avatar}) => {
+const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({name,avatar}) => {
   return (
     <section>
       <div className="card bg-base-100 w-96 shadow-xl">
@@ -33,7 +33,7 @@ const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({opponentName,avatar}
               <img src={avatar} />
             </div>
           </div>
-          <h2 className="card-title">{opponentName}</h2>
+          <h2 className="card-title">{name}</h2>
           <div className="card-actions">
             <button className="btn btn-primary" id="paperleftbutton">Piedra</button>
             <button className="btn btn-primary" id="paperleftbutton">Papel</button>

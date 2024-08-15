@@ -1,0 +1,24 @@
+{
+    "opponents":[
+        {
+            "name":"Jose Reyes",
+            "avatar":"https://avatar.iran.liara.run/public/30"
+        },
+        {
+            "name":"Deyuli Carcuz",
+            "avatar":"https://avatar.iran.liara.run/public/98"
+        },
+        {
+            "name":"Jose Vega",
+            "avatar":"https://avatar.iran.liara.run/public/16"
+        },
+        {
+            "name":"Fabian Mata",
+            "avatar":"https://avatar.iran.liara.run/public/31"
+        },
+        {
+            "name":"Santiago Perez",
+            "avatar":"https://avatar.iran.liara.run/public/6"
+        }
+    ]
+}

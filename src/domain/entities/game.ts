@@ -1,13 +1,14 @@
-import { Player } from "./player";
+import { Player } from "./player"
+import {opponents} from "@/data/opponents.json"
 
 export class Game{
     player1:Player
     player2:Player
 
-    constructor(player1:Player, player2:Player){
-        this.player1 = player1,
-        this.player2 = player2
+    constructor(player1:Player){
+        this.player1 = player1
+        let randomOpponent = opponents[Math.floor(Math.random()*opponents.length)]
+        this.player2 = new Player(randomOpponent.name,randomOpponent.avatar)
     }
 
-    
 }

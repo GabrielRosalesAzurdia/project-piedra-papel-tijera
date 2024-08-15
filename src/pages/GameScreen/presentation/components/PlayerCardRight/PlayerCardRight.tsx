@@ -35,9 +35,9 @@ const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({opponentName,avata
           </div>
           <h2 className="card-title">{opponentName}</h2>
           <div className="card-actions">
-            <button className="btn btn-primary" id="paperrightbutton">Piedra</button>
-            <button className="btn btn-primary" id="paperrightbutton">Papel</button>
-            <button className="btn btn-primary" id="scissorrightbutton">Tijeras</button>
+            <button className="btn btn-secondary no-animation" id="paperrightbutton">Piedra</button>
+            <button className="btn btn-secondary no-animation" id="paperrightbutton">Papel</button>
+            <button className="btn btn-secondary no-animation" id="scissorrightbutton">Tijeras</button>
           </div>
         </div>
       </div>
