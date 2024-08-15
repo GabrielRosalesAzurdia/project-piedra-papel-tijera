@@ -24,6 +24,7 @@ const GameScreen: React.FC<GameScreenInterface> = () => {
         // gana player 1
         setmodalText(gameState.player1.name);
         setmodalAvatar(gameState.player1.avatar);
+        gameState.player1.points += 1;
       }
 
       if (
@@ -33,6 +34,7 @@ const GameScreen: React.FC<GameScreenInterface> = () => {
         // gana player 2
         setmodalText(gameState.player2.name);
         setmodalAvatar(gameState.player2.avatar);
+        gameState.player2.points += 1;
       }
 
       const winnerModal = document.getElementById(
@@ -43,6 +45,19 @@ const GameScreen: React.FC<GameScreenInterface> = () => {
     }
   }, [gameState]);
 
+  const reset = ()=>{
+    document.getElementById("swapleft")?.classList.remove("swap-active")
+    document.getElementById("swapright")?.classList.remove("swap-active")
+    document.getElementById(gameState.player1.selectedAction?.name+"leftimage")?.classList.add("hidden")
+    document.getElementById(gameState.player2.selectedAction?.name+"rightimage")?.classList.add("hidden")
+    document.getElementById(gameState.player1.selectedAction?.name+"left")?.classList.remove("btn-active")
+    document.getElementById(gameState.player2.selectedAction?.name+"right")?.classList.remove("btn-active")
+    gameState.finished = false
+    gameState.player1.selectedAction = undefined
+    gameState.player2.selectedAction = undefined
+    setGame({ ...gameState, })
+  }
+
   return (
     <section className="pt-10">
       <div className="flex flex-row flex-wrap justify-around">
@@ -50,7 +65,10 @@ const GameScreen: React.FC<GameScreenInterface> = () => {
         <PlayerCardRightContainer />
       </div>
 
-      <div className="pt-10 text-center" onClick={()=>{location.reload()}}>
+      <div
+        className="pt-10 text-center"
+        onClick={reset}
+      >
         <button className="btn btn-accent btn-xs sm:btn-sm md:btn-md lg:btn-lg">
           Reset
         </button>

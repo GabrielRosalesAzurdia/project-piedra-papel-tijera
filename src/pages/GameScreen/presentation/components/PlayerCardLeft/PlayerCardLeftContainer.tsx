@@ -27,6 +27,7 @@ const PlayerCardLeftContainer: React.FC<
       avatar={gameState.player1.avatar}
       actions={gameState.player1.actions}
       handleOnClick={handleOnClick}
+      points={gameState.player1.points}
     ></PlayerCardLeft>
   );
 };

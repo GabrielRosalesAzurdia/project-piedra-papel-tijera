@@ -3,7 +3,7 @@ import { Action } from "./action";
 export class Player {
   avatar: string;
   name: string;
-  points: Number = 0;
+  points: number = 0;
   selectedAction: Action | undefined;
   actions: Action[] = [];
 

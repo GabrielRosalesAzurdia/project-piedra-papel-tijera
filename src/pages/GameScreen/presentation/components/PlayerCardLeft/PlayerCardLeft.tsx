@@ -6,6 +6,7 @@ export interface PlayerCardLeftInterface {
   avatar: string;
   handleOnClick(action: Action): void;
   actions: Action[];
+  points:Number;
 }
 
 const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({
@@ -13,6 +14,7 @@ const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({
   avatar,
   handleOnClick,
   actions,
+  points,
 }) => {
   return (
     <section>
@@ -35,10 +37,14 @@ const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({
           </label>
         </figure>
         <div className="card-body items-start text-start">
-          <div className="avatar">
-            <div className="w-24 rounded-full">
-              <img src={avatar} />
+          <div className="flex flex-row justify-around">
+            <div className="avatar">
+              <div className="w-24 rounded-full">
+                <img src={avatar} />
+              </div>
             </div>
+            <span className="p-2"></span>
+            <div className="text-9xl">{points.toString()}</div>
           </div>
           <h2 className="card-title">{name}</h2>
           <div className="card-actions">

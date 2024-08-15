@@ -5,12 +5,14 @@ export interface PlayerCardRightInterface {
   opponentName: string;
   avatar: string;
   actions: Action[];
+  points:Number;
 }
 
 const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({
   opponentName,
   avatar,
   actions,
+  points
 }) => {
   return (
     <section>
@@ -33,9 +35,13 @@ const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({
           </label>
         </figure>
         <div className="card-body items-end text-end">
-          <div className="avatar">
-            <div className="w-24 rounded-full">
-              <img src={avatar} />
+          <div className="flex flex-row justify-around">
+            <div className="text-9xl">{points.toString()}</div>
+            <span className="p-2"></span>
+            <div className="avatar">
+              <div className="w-24 rounded-full">
+                <img src={avatar} />
+              </div>
             </div>
           </div>
           <h2 className="card-title">{opponentName}</h2>

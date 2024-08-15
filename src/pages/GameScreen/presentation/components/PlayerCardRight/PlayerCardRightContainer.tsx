@@ -24,6 +24,7 @@ const PlayerCardRightContainer: React.FC<
       opponentName={gameState.player2.name}
       avatar={gameState.player2.avatar}
       actions={gameState.player2.actions}
+      points={gameState.player2.points}
     ></PlayerCardRight>
   );
 };
