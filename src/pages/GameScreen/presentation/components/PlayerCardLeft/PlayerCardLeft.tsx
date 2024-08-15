@@ -19,7 +19,7 @@ const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({
   return (
     <section>
       {/* <div className="card bg-base-100  w-96 shadow-xl"> */}
-      <div className="card bg-primary-content w-96 shadow-xl">
+      <div className="card bg-primary-content w-90 shadow-xl">
         <figure>
           <label className="swap text-9xl" id="swapleft">
             {actions.map((element) => (
