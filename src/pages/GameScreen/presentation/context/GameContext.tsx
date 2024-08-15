@@ -1,8 +1,9 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 import { Game } from "@/domain/entities/game";
 
 interface GameContextProps {
   gameState: Game;
+  setGame: Dispatch<SetStateAction<Game>>
 }
 
 export const GameContext = createContext<GameContextProps>(

@@ -1,13 +1,21 @@
 import paperleft from "@/assets/papel izquierda.png";
 import rockleft from "@/assets/piedra izquierda.png";
 import scissorsleft from "@/assets/tijera izquierda.png";
+import { Action } from "@/domain/entities/action";
 
 export interface PlayerCardLeftInterface {
-  name:string
-  avatar:string
+  name: string;
+  avatar: string;
+  handleOnClick(action: Action): void;
+  actions: Action[];
 }
 
-const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({name,avatar}) => {
+const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({
+  name,
+  avatar,
+  handleOnClick,
+  actions,
+}) => {
   return (
     <section>
       <div className="card bg-base-100 w-96 shadow-xl">
@@ -35,9 +43,16 @@ const PlayerCardLeft: React.FC<PlayerCardLeftInterface> = ({name,avatar}) => {
           </div>
           <h2 className="card-title">{name}</h2>
           <div className="card-actions">
-            <button className="btn btn-primary" id="paperleftbutton">Piedra</button>
-            <button className="btn btn-primary" id="paperleftbutton">Papel</button>
-            <button className="btn btn-primary" id="scissorleftbutton">Tijeras</button>
+            {actions.map((element) => (
+              <button
+                className="btn btn-primary btn-outline"
+                id={element.name + "left"}
+                key={element.name + "left"}
+                onClick={() => handleOnClick(element)}
+              >
+                {element.name}
+              </button>
+            ))}
           </div>
         </div>
       </div>

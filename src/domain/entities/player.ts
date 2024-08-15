@@ -16,9 +16,4 @@ export class Player{
         this.name = name
         this.avatar = avatar
     }
-
-    selectAction(actionCode:ActionCodes){
-        this.selectedAction =  this.actions.find((action) => action.code = actionCode)
-        return;
-    }
 }

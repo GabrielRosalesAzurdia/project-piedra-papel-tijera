@@ -1,13 +1,15 @@
 import paperRight from "@/assets/papel derecha.png";
 import rockRight from "@/assets/piedra derecha.png";
 import scissorsRight from "@/assets/tijera derecha.png";
+import { Action } from "@/domain/entities/action";
 
 export interface PlayerCardRightInterface {
   opponentName:string
   avatar:string
+  actions: Action[]
 }
 
-const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({opponentName,avatar}) => {
+const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({opponentName,avatar,actions}) => {
   return (
     <section>
       <div className="card bg-base-100 w-96 shadow-xl">
@@ -35,9 +37,15 @@ const PlayerCardRight: React.FC<PlayerCardRightInterface> = ({opponentName,avata
           </div>
           <h2 className="card-title">{opponentName}</h2>
           <div className="card-actions">
-            <button className="btn btn-secondary no-animation" id="paperrightbutton">Piedra</button>
-            <button className="btn btn-secondary no-animation" id="paperrightbutton">Papel</button>
-            <button className="btn btn-secondary no-animation" id="scissorrightbutton">Tijeras</button>
+          {actions.map((element) => (
+              <button
+                className="btn btn-secondary btn-outline no-animation"
+                id={element.name + "right"}
+                key={element.name + "right"}
+              >
+                {element.name}
+              </button>
+            ))}
           </div>
         </div>
       </div>

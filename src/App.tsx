@@ -1,12 +1,14 @@
-import GameScreen from "./pages/GameScreen/GameScreen"
+import GameScreen from "./pages/GameScreen/GameScreen";
+import { GameProvider } from "./pages/GameScreen/presentation/context/GameProvider";
 
 function App() {
-
   return (
     <>
-      <GameScreen></GameScreen>
+      <GameProvider>
+        <GameScreen></GameScreen>
+      </GameProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

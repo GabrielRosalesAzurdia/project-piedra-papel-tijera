@@ -1,12 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { GameContext } from "./GameContext";
 import { Game } from "@/domain/entities/game";
 import { Player } from "@/domain/entities/player";
 import avatarplayer from "@/assets/avatarplayer1.png";
-
-const INITIAL_STATE: Game = new Game(
-    new Player("Player name",avatarplayer)
-  );
 
 interface GameContextInterface {
 	children: JSX.Element | JSX.Element[];
@@ -15,9 +11,11 @@ interface GameContextInterface {
 export const GameProvider: React.FC<GameContextInterface> = ({
 	children,
 }) => {
-	const game = INITIAL_STATE;
+	const [gameState, setGame] = useState(new Game(
+		new Player("Player name",avatarplayer)
+	  ));
 	return (
-		<GameContext.Provider value={{gameState:game}}>
+		<GameContext.Provider value={{gameState,setGame}}>
 			{children}
 		</GameContext.Provider>
 	);
