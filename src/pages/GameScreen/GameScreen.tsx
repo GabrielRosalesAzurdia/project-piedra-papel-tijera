@@ -37,6 +37,11 @@ const GameScreen: React.FC<GameScreenInterface> = () => {
         gameState.player2.points += 1;
       }
 
+      if(gameState.player1.selectedAction.code == gameState.player2.selectedAction.code){
+        setmodalText("Nadie :P")
+        setmodalAvatar("")
+      }
+
       const winnerModal = document.getElementById(
         "winnermodal"
       ) as HTMLDialogElement;
